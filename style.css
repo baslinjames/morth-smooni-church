@@ -18,28 +18,34 @@ body {
 header {
   background: #5b0f1a;
   color: white;
-  padding: 20px 0;
+  padding: 15px 50px; /* added horizontal padding */
 }
 
-.header-flex {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 15px;
+/* Use container class but only inside header for flex */
+header .container {
+  display: flex;                 /* flex layout */
+  align-items: center;           /* vertical center */
+  justify-content: space-between; /* left, center, right spacing */
+  gap: 20px;
 }
 
-.logo {
-  height: 55px;
+.left-logo, .right-logo {
+  height: 70px;
   width: auto;
+}
+
+.title-block {
+  text-align: center;
+  flex-grow: 1; /* takes available space between left & right logos */
 }
 
 .title-block h1 {
   margin: 0;
-  font-size: 24px;
+  font-size: 26px;
 }
 
 .title-block p {
-  margin: 3px 0 0 0;
+  margin: 5px 0 0 0;
   font-size: 14px;
 }
 
@@ -47,7 +53,7 @@ header {
 
 nav {
   background: #c9a227;
-  padding: 15px 0;
+  padding: 12px 0;
   text-align: center;
 }
 
@@ -69,6 +75,34 @@ nav a.active {
   color: #5b0f1a;
   border-bottom: 3px solid #5b0f1a;
   padding-bottom: 5px;
+}
+
+/* ========== IMAGE SLIDER ========== */
+
+.slider {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  margin-bottom: 50px;
+}
+
+.slides {
+  display: flex;
+  width: 300%; /* 3 images */
+  animation: slideAnimation 12s infinite;
+}
+
+.slides img {
+  width: 100%;
+  flex-shrink: 0;
+}
+
+/* Slide animation: moves left every 4s */
+@keyframes slideAnimation {
+  0%   { transform: translateX(0%); }
+  33%  { transform: translateX(-100%); }
+  66%  { transform: translateX(-200%); }
+  100% { transform: translateX(0%); }
 }
 
 /* ========== MAIN CONTENT ========== */
